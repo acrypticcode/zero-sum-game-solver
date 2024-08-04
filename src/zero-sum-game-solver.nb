@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     10510,        282]
-NotebookOptionsPosition[      8485,        239]
-NotebookOutlinePosition[      8948,        257]
-CellTagsIndexPosition[      8905,        254]
+NotebookDataLength[     11151,        294]
+NotebookOptionsPosition[      9022,        249]
+NotebookOutlinePosition[      9462,        266]
+CellTagsIndexPosition[      9419,        263]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -22,7 +22,7 @@ Notebook[{
 Cell[CellGroupData[{
 Cell["Zero Sum Game Solver", "Title",
  CellChangeTimes->{{3.931743411614559*^9, 
-  3.9317434173795395`*^9}},ExpressionUUID->"abefdb0e-47a5-7745-be9b-\
+  3.931743417379539*^9}},ExpressionUUID->"abefdb0e-47a5-7745-be9b-\
 5a7af537eeac"],
 
 Cell[CellGroupData[{
@@ -51,14 +51,18 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"{", 
      RowBox[{
-     "player1StrategyCount", ",", "player1MixedStrategies", ",", 
-      "strategyProbability", ",", "params", ",", "constraints", ",", 
-      "solution"}], "}"}], ",", 
+     "player1StrategyCount", ",", "player2StrategyCount", ",", 
+      "player1MixedStrategies", ",", "strategyProbability", ",", "params", 
+      ",", "constraints", ",", "solution"}], "}"}], ",", 
     RowBox[{
      RowBox[{"player1StrategyCount", "=", 
       RowBox[{
        RowBox[{"Dimensions", "[", "payoffMatrix", "]"}], "[", 
-       RowBox[{"[", "1", "]"}], "]"}]}], ";", 
+       RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"player2StrategyCount", "=", 
+      RowBox[{
+       RowBox[{"Dimensions", "[", "payoffMatrix", "]"}], "[", 
+       RowBox[{"[", "2", "]"}], "]"}]}], ";", 
      RowBox[{"player1MixedStrategies", "=", 
       RowBox[{"Array", "[", 
        RowBox[{"strategyProbability", ",", "player1StrategyCount"}], "]"}]}], 
@@ -87,12 +91,11 @@ Cell[BoxData[
            RowBox[{
             RowBox[{
              RowBox[{"(", 
-              RowBox[{
-               RowBox[{"Transpose", "[", "player1MixedStrategies", "]"}], ".",
-                "payoffMatrix"}], ")"}], "[", 
+              RowBox[{"player1MixedStrategies", ".", "payoffMatrix"}], ")"}], 
+             "[", 
              RowBox[{"[", "n", "]"}], "]"}], ">=", "solution"}], ",", 
            RowBox[{"{", 
-            RowBox[{"n", ",", "player1StrategyCount"}], "}"}]}], "]"}]}], 
+            RowBox[{"n", ",", "player2StrategyCount"}], "}"}]}], "]"}]}], 
         "}"}], "]"}]}], ";", 
      RowBox[{"Values", "[", 
       RowBox[{"Most", "[", 
@@ -101,16 +104,16 @@ Cell[BoxData[
          RowBox[{"-", "solution"}], ",", "constraints", ",", "params"}], 
         "]"}], "]"}], "]"}]}]}], "]"}]}]], "Input",
  CellChangeTimes->{{3.9317411572698307`*^9, 3.9317412207395134`*^9}, {
-  3.9317412653392315`*^9, 3.93174131182679*^9}, {3.931741421334858*^9, 
-  3.931741453194145*^9}, {3.931741488486246*^9, 3.931741490839058*^9}, {
-  3.931741535870373*^9, 3.9317415899149303`*^9}, {3.9317418046649513`*^9, 
-  3.931741831691082*^9}, {3.9317418905466022`*^9, 3.9317419569395676`*^9}, {
-  3.9317419971642723`*^9, 3.931742058323761*^9}, {3.9317424614749928`*^9, 
-  3.931742463390629*^9}, {3.93174251041691*^9, 3.931742519273014*^9}, {
-  3.931742583984276*^9, 3.9317427252182007`*^9}, {3.9317427997110214`*^9, 
-  3.931742824591179*^9}, {3.931743164352627*^9, 3.9317431715394917`*^9}, {
-  3.9317439216783657`*^9, 3.9317439480177956`*^9}},
- CellLabel->"In[15]:=",ExpressionUUID->"e3eebedf-0138-a64d-a68b-9645f8448e2f"]
+   3.931741265339231*^9, 3.93174131182679*^9}, {3.931741421334858*^9, 
+   3.931741453194145*^9}, {3.931741488486246*^9, 3.931741490839058*^9}, {
+   3.931741535870373*^9, 3.9317415899149303`*^9}, {3.9317418046649513`*^9, 
+   3.931741831691082*^9}, {3.931741890546602*^9, 3.931741956939567*^9}, {
+   3.9317419971642723`*^9, 3.931742058323761*^9}, {3.9317424614749928`*^9, 
+   3.931742463390629*^9}, {3.93174251041691*^9, 3.931742519273014*^9}, {
+   3.931742583984276*^9, 3.9317427252182*^9}, {3.931742799711021*^9, 
+   3.931742824591179*^9}, {3.931743164352627*^9, 3.9317431715394917`*^9}, {
+   3.931743921678365*^9, 3.9317439480177956`*^9}, 3.9317753174338226`*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"e3eebedf-0138-a64d-a68b-9645f8448e2f"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -136,14 +139,14 @@ Cell[BoxData[
     RowBox[{"{", 
      RowBox[{"1", ",", "0"}], "}"}]}], "}"}], "]"}]], "Input",
  CellChangeTimes->{{3.931743376965103*^9, 3.9317433807663097`*^9}},
- CellLabel->"In[25]:=",ExpressionUUID->"9180cf35-712a-c748-8666-7ab0534e536d"],
+ CellLabel->"In[2]:=",ExpressionUUID->"9180cf35-712a-c748-8666-7ab0534e536d"],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"1", ",", "0"}], "}"}]], "Output",
- CellChangeTimes->{3.9317433858044376`*^9, 3.931744001606283*^9, 
-  3.9317441897545166`*^9},
- CellLabel->"Out[25]=",ExpressionUUID->"fa8a1e94-439f-f34f-998f-2bc03cd76d65"]
+ CellChangeTimes->{3.931743385804437*^9, 3.931744001606283*^9, 
+  3.931744189754516*^9, 3.9317753414799213`*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"d7bbb202-24a1-8341-9a75-48bc2f40e4b2"]
 }, Open  ]],
 
 Cell["Mixed Strategy  Nash  Equilibrium  for  2 x2  game :", "CodeText",
@@ -162,7 +165,7 @@ Cell[BoxData[
     RowBox[{"{", 
      RowBox[{"1", ",", "4"}], "}"}]}], "}"}], "]"}]], "Input",
  CellChangeTimes->{{3.931743180876747*^9, 3.931743225237238*^9}},
- CellLabel->"In[21]:=",ExpressionUUID->"ad30d58f-d136-ec4d-8911-95ec43952657"],
+ CellLabel->"In[3]:=",ExpressionUUID->"ad30d58f-d136-ec4d-8911-95ec43952657"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -170,8 +173,8 @@ Cell[BoxData[
    FractionBox["1", "2"], ",", 
    FractionBox["1", "2"]}], "}"}]], "Output",
  CellChangeTimes->{{3.931743215716278*^9, 3.931743226309408*^9}, 
-   3.931743968327324*^9, 3.931744005018688*^9},
- CellLabel->"Out[21]=",ExpressionUUID->"06cb0a34-8334-6f4c-b385-eb3aa32fe3cc"]
+   3.931743968327324*^9, 3.931744005018688*^9, 3.9317753466548233`*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"5425ab70-4187-f14d-a320-736856b7162f"]
 }, Open  ]],
 
 Cell["Mixed  Strategy   Nash   Equilibrium   for   3 x3   game :", "CodeText",
@@ -192,8 +195,8 @@ Cell[BoxData[
     RowBox[{"{", 
      RowBox[{"5", ",", "3", ",", "0"}], "}"}]}], "}"}], "]"}]], "Input",
  CellChangeTimes->{{3.931743253581295*^9, 3.9317432985112324`*^9}, 
-   3.9317442216415977`*^9},
- CellLabel->"In[27]:=",ExpressionUUID->"a510049e-e0ac-3f40-98c0-9e2ad736c0f3"],
+   3.931744221641598*^9},
+ CellLabel->"In[4]:=",ExpressionUUID->"a510049e-e0ac-3f40-98c0-9e2ad736c0f3"],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -202,44 +205,50 @@ Cell[BoxData[
    FractionBox["19", "44"], ",", 
    FractionBox["9", "22"]}], "}"}]], "Output",
  CellChangeTimes->{{3.931743267833212*^9, 3.931743299730463*^9}, {
-   3.931743958925127*^9, 3.931743971430523*^9}, 3.9317440075048695`*^9, 
-   3.9317442660910664`*^9},
- CellLabel->"Out[27]=",ExpressionUUID->"4ad112c7-6a5f-7a4d-a0eb-ad11f8a7ce56"]
+   3.931743958925127*^9, 3.931743971430523*^9}, 3.931744007504869*^9, 
+   3.931744266091067*^9, 3.9317753494195404`*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"f49b85d8-8444-614d-94f1-779e2c2ec70c"]
 }, Open  ]],
 
-Cell["\<\
-**TO BE IMPLEMENTED** Pure  Strategy  Nash  Equilibrium  for  4x2  game : \
-\>", "CodeText",
- CellChangeTimes->{{3.93174371382646*^9, 3.9317437301290665`*^9}, {
+Cell["Pure  Strategy  Nash  Equilibrium  for  4x2  game : ", "CodeText",
+ CellChangeTimes->{{3.93174371382646*^9, 3.931743730129066*^9}, {
   3.931744281997612*^9, 3.9317442835803413`*^9}, {3.931745058440796*^9, 
-  3.931745086311384*^9}},ExpressionUUID->"ba25da68-d041-7e4c-ba75-\
+  3.931745086311384*^9}, {3.9317753611528473`*^9, 
+  3.931775363433626*^9}},ExpressionUUID->"ba25da68-d041-7e4c-ba75-\
 3b08c6a85006"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
- RowBox[{"(*", 
-  RowBox[{"solveZeroSumGame", "[", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"2", ",", "3"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"1", ",", "0"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"4", ",", "5"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"0", ",", "1"}], "}"}]}], "}"}], "]"}], "*)"}]], "Input",
- CellChangeTimes->{{3.9317435897334824`*^9, 3.931743592767601*^9}, {
-  3.931743763587408*^9, 3.9317437680303555`*^9}, {3.931743808818445*^9, 
-  3.9317438356375217`*^9}, {3.931744034426836*^9, 3.9317440349841423`*^9}, {
-  3.9317442387676144`*^9, 3.931744239497814*^9}, {3.9317450508630104`*^9, 
-  3.9317450555632153`*^9}},
- CellLabel->"In[29]:=",ExpressionUUID->"55d7fc86-ae7d-c749-b6d9-64ed4b563eaa"]
+ RowBox[{"solveZeroSumGame", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"2", ",", "3"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "0"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"4", ",", "5"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "1"}], "}"}]}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.931743589733482*^9, 3.931743592767601*^9}, {
+  3.931743763587408*^9, 3.931743768030356*^9}, {3.931743808818445*^9, 
+  3.9317438356375213`*^9}, {3.931744034426836*^9, 3.931744034984142*^9}, {
+  3.931744238767615*^9, 3.931744239497814*^9}, {3.93174505086301*^9, 
+  3.931745055563215*^9}, {3.9317753524609528`*^9, 3.9317753548332844`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"55d7fc86-ae7d-c749-b6d9-64ed4b563eaa"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", "0", ",", "1", ",", "0"}], "}"}]], "Output",
+ CellChangeTimes->{{3.931775356266403*^9, 3.9317753666404743`*^9}},
+ CellLabel->"Out[6]=",ExpressionUUID->"bf84d043-a39c-c949-859e-eb52bfeb182f"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1152, 651.6},
-WindowMargins->{{
-  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
+WindowSize->{1141.2, 646.1999999999999},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
 CellContext->Notebook,
 FrontEndVersion->"14.0 for Microsoft Windows (64-bit) (December 12, 2023)",
 StyleDefinitions->"Default.nb",
@@ -257,31 +266,34 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 165, 3, 98, "Title",ExpressionUUID->"abefdb0e-47a5-7745-be9b-5a7af537eeac"],
+Cell[580, 22, 163, 3, 98, "Title",ExpressionUUID->"abefdb0e-47a5-7745-be9b-5a7af537eeac"],
 Cell[CellGroupData[{
-Cell[770, 29, 316, 7, 67, "Section",ExpressionUUID->"d45bf8e2-7be1-0947-be82-e3f5e7ff4356"],
-Cell[1089, 38, 288, 6, 35, "Text",ExpressionUUID->"ee1f60db-289e-454f-9789-b16198a4ae2f"],
-Cell[1380, 46, 2860, 66, 143, "Input",ExpressionUUID->"e3eebedf-0138-a64d-a68b-9645f8448e2f"]
+Cell[768, 29, 316, 7, 67, "Section",ExpressionUUID->"d45bf8e2-7be1-0947-be82-e3f5e7ff4356"],
+Cell[1087, 38, 288, 6, 35, "Text",ExpressionUUID->"ee1f60db-289e-454f-9789-b16198a4ae2f"],
+Cell[1378, 46, 3047, 69, 181, "Input",ExpressionUUID->"e3eebedf-0138-a64d-a68b-9645f8448e2f"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4277, 117, 153, 3, 67, "Section",ExpressionUUID->"8f295a8a-5798-374d-be77-8b71300c9e4c"],
-Cell[4433, 122, 194, 3, 38, "CodeText",ExpressionUUID->"9128958d-6ae7-3e41-9795-faf3404ccfe7"],
+Cell[4462, 120, 153, 3, 67, "Section",ExpressionUUID->"8f295a8a-5798-374d-be77-8b71300c9e4c"],
+Cell[4618, 125, 194, 3, 38, "CodeText",ExpressionUUID->"9128958d-6ae7-3e41-9795-faf3404ccfe7"],
 Cell[CellGroupData[{
-Cell[4652, 129, 365, 9, 28, "Input",ExpressionUUID->"9180cf35-712a-c748-8666-7ab0534e536d"],
-Cell[5020, 140, 245, 5, 32, "Output",ExpressionUUID->"fa8a1e94-439f-f34f-998f-2bc03cd76d65"]
+Cell[4837, 132, 364, 9, 28, "Input",ExpressionUUID->"9180cf35-712a-c748-8666-7ab0534e536d"],
+Cell[5204, 143, 264, 5, 32, "Output",ExpressionUUID->"d7bbb202-24a1-8341-9a75-48bc2f40e4b2"]
 }, Open  ]],
-Cell[5280, 148, 223, 3, 38, "CodeText",ExpressionUUID->"240332ea-3e10-724e-8a77-babd3b68251f"],
+Cell[5483, 151, 223, 3, 38, "CodeText",ExpressionUUID->"240332ea-3e10-724e-8a77-babd3b68251f"],
 Cell[CellGroupData[{
-Cell[5528, 155, 363, 9, 28, "Input",ExpressionUUID->"ad30d58f-d136-ec4d-8911-95ec43952657"],
-Cell[5894, 166, 310, 7, 47, "Output",ExpressionUUID->"06cb0a34-8334-6f4c-b385-eb3aa32fe3cc"]
+Cell[5731, 158, 362, 9, 28, "Input",ExpressionUUID->"ad30d58f-d136-ec4d-8911-95ec43952657"],
+Cell[6096, 169, 333, 7, 47, "Output",ExpressionUUID->"5425ab70-4187-f14d-a320-736856b7162f"]
 }, Open  ]],
-Cell[6219, 176, 206, 3, 38, "CodeText",ExpressionUUID->"1d018e92-c6aa-c448-b3c5-23da229794b5"],
+Cell[6444, 179, 206, 3, 38, "CodeText",ExpressionUUID->"1d018e92-c6aa-c448-b3c5-23da229794b5"],
 Cell[CellGroupData[{
-Cell[6450, 183, 484, 12, 28, "Input",ExpressionUUID->"a510049e-e0ac-3f40-98c0-9e2ad736c0f3"],
-Cell[6937, 197, 400, 9, 48, "Output",ExpressionUUID->"4ad112c7-6a5f-7a4d-a0eb-ad11f8a7ce56"]
+Cell[6675, 186, 481, 12, 28, "Input",ExpressionUUID->"a510049e-e0ac-3f40-98c0-9e2ad736c0f3"],
+Cell[7159, 200, 419, 9, 48, "Output",ExpressionUUID->"f49b85d8-8444-614d-94f1-779e2c2ec70c"]
 }, Open  ]],
-Cell[7352, 209, 326, 6, 38, "CodeText",ExpressionUUID->"ba25da68-d041-7e4c-ba75-3b08c6a85006"],
-Cell[7681, 217, 776, 18, 28, "Input",ExpressionUUID->"55d7fc86-ae7d-c749-b6d9-64ed4b563eaa"]
+Cell[7593, 212, 345, 5, 38, "CodeText",ExpressionUUID->"ba25da68-d041-7e4c-ba75-3b08c6a85006"],
+Cell[CellGroupData[{
+Cell[7963, 221, 777, 17, 28, "Input",ExpressionUUID->"55d7fc86-ae7d-c749-b6d9-64ed4b563eaa"],
+Cell[8743, 240, 239, 4, 32, "Output",ExpressionUUID->"bf84d043-a39c-c949-859e-eb52bfeb182f"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }
